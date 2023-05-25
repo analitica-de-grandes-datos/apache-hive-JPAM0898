@@ -37,8 +37,8 @@ CREATE TABLE pregunta
 AS 
         SELECT letters, words
         FROM t0
-        LATERAL VIEW EXPLODE(c2) l AS letters
-        LATERAL VIEW EXPLODE(c3) w AS words, value;
+        LATERAL VIEW EXPLODE(c2) t0 AS letters
+        LATERAL VIEW EXPLODE(c3) t0 AS words, value;
 INSERT OVERWRITE LOCAL DIRECTORY './output'
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 SELECT letters, words, COUNT(1)
